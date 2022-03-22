@@ -1,5 +1,4 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 import img1 from '../assets/image-product-1.jpg'
@@ -11,22 +10,39 @@ import timg2 from '../assets/image-product-2-thumbnail.jpg'
 import timg3 from '../assets/image-product-3-thumbnail.jpg'
 import timg4 from '../assets/image-product-4-thumbnail.jpg'
 import {useState} from 'react'
+import Navbar from '../components/Navbar'
 
 const Home: NextPage = () => {
 
   const [selectImage, setSelectImage] = useState(1);
+  const [selectImage1, setSelectImage1] = useState(1);
   let [counter, setCounter] = useState(0);
+  const [preview, setPreview] = useState(false);
 
   return (
+    <div className={styles.sell_page}>
+
+    <div className={`${preview?styles.preview_panel_show:styles.preview_panel_hidden} text-center d-flex flex-column justify-content-center align-items-center`}>
+      <div style={{width:"400px", marginRight:"-380px"}}><button className="btn" type="button" onClick={()=>setPreview(false)}><svg width="14" height="15" xmlns="http://www.w3.org/2000/svg"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill="#69707D" fill-rule="evenodd"/></svg></button></div>
+      <Image src={selectImage1===1?img1:selectImage1===2?img2:selectImage1===3?img3:img4}   placeholder="empty" alt="icon menu" layout='fixed' className={`${styles.preview_img} rounded`} width="400px" height="400px"/>
+         <div className="btn-group">
+           <button type="button" className="btn mx-2" onClick={()=>setSelectImage1(1)}><Image src={timg1} alt="icon menu" layout='fixed'  width="60px" height="60px" className="rounded"/></button>
+           <button type="button" className="btn mx-2" onClick={()=>setSelectImage1(2)}><Image src={timg2} alt="icon menu" layout='fixed'  width="60px" height="60px" className="rounded"/></button>
+           <button type="button" className="btn mx-2" onClick={()=>setSelectImage1(3)}><Image src={timg3} alt="icon menu" layout='fixed'  width="60px" height="60px" className="rounded"/></button>
+           <button type="button" className="btn mx-2" onClick={()=>setSelectImage1(4)}><Image src={timg4} alt="icon menu" layout='fixed'  width="60px" height="60px" className="rounded"/></button>
+         </div>
+    </div>
+
+    <Navbar/>
     <div className={`${styles.container} container`}>
           <div className="row mt-3">
               <div className="col-md-6 text-center">
-               <Image src={selectImage===1?img1:selectImage===2?img2:selectImage===3?img3:img4}   placeholder="blur" alt="icon menu" layout='fixed' id="preview_img" width="400px" height="400px" className="rounded"/>
+               <Image onClick={()=>setPreview(true)} src={selectImage===1?img1:selectImage===2?img2:selectImage===3?img3:img4}   placeholder="empty" alt="icon menu" layout='fixed' className={`${styles.preview_img} rounded`} width="400px" height="400px"/>
                   <div className="btn-group">
-                    <button type="button" className="btn mx-2" onClick={()=>setSelectImage(1)}><Image src={timg1} alt="icon menu" layout='fixed' id="preview_img" width="60px" height="60px" className="rounded"/></button>
-                    <button type="button" className="btn mx-2" onClick={()=>setSelectImage(2)}><Image src={timg2} alt="icon menu" layout='fixed' id="preview_img" width="60px" height="60px" className="rounded"/></button>
-                    <button type="button" className="btn mx-2" onClick={()=>setSelectImage(3)}><Image src={timg3} alt="icon menu" layout='fixed' id="preview_img" width="60px" height="60px" className="rounded"/></button>
-                    <button type="button" className="btn mx-2" onClick={()=>setSelectImage(4)}><Image src={timg4} alt="icon menu" layout='fixed' id="preview_img" width="60px" height="60px" className="rounded"/></button>
+                    <button type="button" className="btn mx-2" onClick={()=>setSelectImage(1)}><Image src={timg1} alt="icon menu" layout='fixed'  width="60px" height="60px" className="rounded"/></button>
+                    <button type="button" className="btn mx-2" onClick={()=>setSelectImage(2)}><Image src={timg2} alt="icon menu" layout='fixed'  width="60px" height="60px" className="rounded"/></button>
+                    <button type="button" className="btn mx-2" onClick={()=>setSelectImage(3)}><Image src={timg3} alt="icon menu" layout='fixed'  width="60px" height="60px" className="rounded"/></button>
+                    <button type="button" className="btn mx-2" onClick={()=>setSelectImage(4)}><Image src={timg4} alt="icon menu" layout='fixed'  width="60px" height="60px" className="rounded"/></button>
                   </div>
 
               </div>
@@ -36,7 +52,7 @@ const Home: NextPage = () => {
                     <p className="text-muted">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer. </p>
                     <p className={styles.price}>$125.00</p>
                     <p className="text-decoration-line-through fw-bold text-muted">$250.00</p>
-                    <div className="d-flex">
+                    <div className="d-flex mx-2" style={{backgroundColor:"hsl(223, 64%, 98%)"}}>
                       <div className="w-50 d-flex justify-content-around align-items-center">
                         <button type="button" className="btn" style={{color:"hsl(26, 100%, 55%)"}} onClick={()=>setCounter(counter<=0?0:counter--)}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
                           <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
@@ -52,6 +68,7 @@ const Home: NextPage = () => {
                     </div>
           </div>
           </div>
+    </div>
     </div>
   )
 }
