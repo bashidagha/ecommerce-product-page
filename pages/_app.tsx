@@ -1,8 +1,23 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
+import 'bootstrap/dist/css/bootstrap.css';
+import {useEffect} from 'react'
+import Navbar from '../components/Navbar'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+
+useEffect(() => {
+  typeof document !== undefined
+  ? require('bootstrap/dist/js/bootstrap')
+  : null
+}, [])
+
+  return (
+    <>
+    <Navbar/>
+    <Component {...pageProps} />
+    </>
+)
 }
 
 export default MyApp

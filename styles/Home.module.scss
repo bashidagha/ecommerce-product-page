@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+.container *{
+  font-size: 16px;
+  font-family: 'Kumbh Sans', sans-serif;
+
+    h1{
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    h5{
+    color: hsl(26, 100%, 55%);
+    font-weight: bold;
+    text-transform: uppercase;
+
+}
+
+.price{
+  font-weight: bold;
+  font-size: 2rem;
+margin-bottom: 0;
+}
+
+.btn_addtobasket{
+    background-color: hsl(26, 100%, 55%);
+    color: white;
+    width: 100%;
+}
+
+}
