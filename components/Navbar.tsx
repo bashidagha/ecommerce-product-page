@@ -63,19 +63,23 @@ const Navbar = ({cart, setCart}:any) => {
           </div>
 
           <div className={`${showCart?styles.cart_preview:styles.cart_preview_hidden} bg-white shadow-sm`} >
-              <p className="p-0 m-0">Cart</p>
-              <hr className="p-0 m-0"/>
+              <p className="p-0 m-0 pb-1">Cart</p>
+              <hr className="p-0 m-0 mb-1"/>
               <div className="buy_list d-flex justify-content-center align-content-center w-100 h-100">
               {!cart? <span>Your cart is empty</span>:
                     <div>
                         <div className="d-flex">
-                          <Image src={timg1} alt="icon menu" layout='fixed'  width="40px" height="40px" className="rounded"/>
-                          <p>Fall Limited Edition Sneakers</p>
-                          <button type="button" className="btn" onClick={()=>setCart(0)} style={{color:"black"}}><svg width="14" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><defs><path d="M0 2.625V1.75C0 1.334.334 1 .75 1h3.5l.294-.584A.741.741 0 0 1 5.213 0h3.571a.75.75 0 0 1 .672.416L9.75 1h3.5c.416 0 .75.334.75.75v.875a.376.376 0 0 1-.375.375H.375A.376.376 0 0 1 0 2.625Zm13 1.75V14.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 1 14.5V4.375C1 4.169 1.169 4 1.375 4h11.25c.206 0 .375.169.375.375ZM4.5 6.5c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Zm3 0c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Zm3 0c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Z" id="a"/></defs></svg></button>
+                          <Image src={timg1} alt="icon menu" layout='fixed'  width="60px" height="60px" className="rounded"/>
+                          <p className="ms-1 mt-2 text-muted">Fall Limited Edition Sneakers <br/> 125.00$ x {cart} = <b className="text-black">{125*cart}</b></p>
+                          <button type="button" onClick={()=>setCart(0)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  viewBox="0 0 16 16">
+                              <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                              <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                            </svg></button>
                         </div>
 
-                        <button className="btn text-white fw-bold" type="button" style={{backgroundColor:"hsl(26, 100%, 55%)"}}>Checkout</button>
-                    </div>}
+                        <button className="btn text-white fw-bold w-100 mt-2" type="button" style={{backgroundColor:"hsl(26, 100%, 55%)"}}>Checkout</button>
+                    </div>
+              }
               </div>
           </div>
         </nav>

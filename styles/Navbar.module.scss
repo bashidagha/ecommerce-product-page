@@ -2,8 +2,10 @@
   position: absolute;
   top: 80px;
   right: 250px;
-  min-height: 200px;
-  min-width: 250px;
+  min-height: 100px;
+  min-width: 200px;
+  padding: 1rem;
+  font-size: .8rem;
 }
 .cart_preview_hidden{
   @extend .cart_preview;
